@@ -12,8 +12,11 @@ def create_app():
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
     
     db.init_app(app)
-    login_manager.init_app(app)
     bcrypt.init_app(app)
+    login_manager.init_app(app)
+    login_manager.login_view = 'users.login'
+    login_manager.login_message = 'Please login to access this page.'
+    login_manager.login_message_category = 'warning'
 
     app.register_blueprint(core_bp, url_prefix='/')
     app.register_blueprint(users_bp, url_prefix='/users')

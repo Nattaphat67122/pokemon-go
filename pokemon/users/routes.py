@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, url_for, redirect, flash
 from pokemon.extension import db, bcrypt
 from pokemon.models import User
-from flask_login import login_user, logout_user, current_user
+from flask_login import login_user, logout_user, current_user, login_required
 
 users_bp = Blueprint('users', __name__, template_folder='templates')
 
@@ -62,15 +62,18 @@ def login():
                          title='Login Page')
 
 @users_bp.route('/')
+@login_required
 def index():
   return render_template('users/index.html', title='User Page')
 
 @users_bp.route('/logout')
+@login_required
 def logout():
   logout_user()
   return redirect(url_for('core.index'))
 
 @users_bp.route('/profile', methods=['GET', 'POST'])
+@login_required
 def profile():
   user = current_user
   if request.method == 'POST':

@@ -6,7 +6,7 @@ types = [
 ]
 
 from pokemon.models import Type
-from pokemon.extension import db
+from pokemon.extensions import db
 def create_pokemon_types():
     for type in types:
         pt = Type(name = type)

@@ -1,4 +1,4 @@
-from pokemon.extension import db, login_manager, bcrypt
+from pokemon.extensions import db, login_manager, bcrypt
 from sqlalchemy import String, Integer, Table,Column, ForeignKey,func,Text, DateTime
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 from typing import List

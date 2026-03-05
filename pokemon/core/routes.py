@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request
 from pokemon.models import Pokemon, Type, User
-from pokemon.extension import db
+from pokemon.extensions import db
 
 core_bp = Blueprint('core', 
                     __name__,

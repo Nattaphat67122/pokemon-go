@@ -1,6 +1,6 @@
 import os
 from flask import Flask 
-from pokemon.extension import db, login_manager, bcrypt
+from pokemon.extensions import db, login_manager, bcrypt
 from pokemon.models import User, Type, Pokemon
 from pokemon.core.routes import core_bp
 from pokemon.users.routes import users_bp
